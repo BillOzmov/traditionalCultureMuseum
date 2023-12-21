@@ -2,14 +2,14 @@
 * Model Resources
 * */
 export const COLLISION_SCENE_URL = new URL("./assets/models/scene_collision.glb", import.meta.url).href;
-export const STATIC_SCENE_URL = new URL("./assets/models/scene_desk_obj.glb", import.meta.url).href;
+export const STATIC_SCENE_URL = new URL("./assets/models/TV.glb", import.meta.url).href;
 
 /*
 * Texture Resources
 * */
 export const BOARD_TEXTURES = [
 	new URL("./assets/boards/1.png", import.meta.url).href,
-	new URL("./assets/boards/2.png", import.meta.url).href, 
+	new URL("./assets/boards/2.png", import.meta.url).href,
 	new URL("./assets/boards/3.png", import.meta.url).href,
 	new URL("./assets/boards/4.png", import.meta.url).href,
 	new URL("./assets/boards/5.png", import.meta.url).href,
@@ -25,7 +25,7 @@ export const BOARD_TEXTURES = [
 /*
 * Audio Resources
 * */
-export const AUDIO_URL = new URL("./assets/audio/我记得.m4a", import.meta.url).href;
+export const AUDIO_URL = new URL("./assets/audio/dylanf - 天空之城（经典钢琴版）.mp3", import.meta.url).href;
 
 /*
 * Intro

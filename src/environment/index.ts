@@ -45,7 +45,7 @@ export default class Environment {
 		}
 
 		for (const key in this.texture_boards) {
-			const texture = this.texture_boards[key]
+			const texture = this.texture_boards[key];
 			texture.colorSpace = SRGBColorSpace;
 
 			// 根据纹理的宽高比和平面的宽高比，计算需要的缩放比例
@@ -153,7 +153,7 @@ export default class Environment {
 					}
 
 					if (item.name.includes("PointLight") && isLight(item)) {
-						item.intensity *= 0.1;
+						item.intensity *= 0.11;
 					}
 
 					if (item.name === "home002") {
