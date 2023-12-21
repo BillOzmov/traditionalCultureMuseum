@@ -153,7 +153,7 @@ export default class Environment {
 					}
 
 					if (item.name.includes("PointLight") && isLight(item)) {
-						item.intensity *= 2000;
+						item.intensity *= 0.11;
 					}
 
 					if (item.name === "home002") {

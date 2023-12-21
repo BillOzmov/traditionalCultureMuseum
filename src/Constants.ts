@@ -9,7 +9,7 @@ export const STATIC_SCENE_URL = new URL("./assets/models/scene_desk_obj.glb", im
 * */
 export const BOARD_TEXTURES = [
 	new URL("./assets/boards/1.png", import.meta.url).href,
-	new URL("./assets/boards/2.png", import.meta.url).href,
+	new URL("./assets/boards/2.png", import.meta.url).href, 
 	new URL("./assets/boards/3.png", import.meta.url).href,
 	new URL("./assets/boards/4.png", import.meta.url).href,
 	new URL("./assets/boards/5.png", import.meta.url).href,
@@ -17,9 +17,9 @@ export const BOARD_TEXTURES = [
 	new URL("./assets/boards/7.png", import.meta.url).href,
 	new URL("./assets/boards/8.png", import.meta.url).href,
 	new URL("./assets/boards/9.png", import.meta.url).href,
-	new URL("./assets/boards/10.png", import.meta.url).href
-	// new URL("./assets/boards/11.png", import.meta.url).href,
-	// new URL("./assets/boards/12.png", import.meta.url).href
+	new URL("./assets/boards/10.png", import.meta.url).href,
+	new URL("./assets/boards/11.png", import.meta.url).href,
+	new URL("./assets/boards/12.png", import.meta.url).href
 ];
 
 /*
@@ -135,26 +135,26 @@ export const BOARDS_INFO: Record<string, {title: string, author: string, describ
 		漆线雕技艺在2006年选入国家级非物质文化遗产名录。
 		`
 	},
-	// 11: {
-	// 	title: "《打铁花》",
-	// 	author: "河南驻马店",
-	// 	describe: `
-	// 	打铁花，是流传于豫晋地区民间传统的烟火，历史悠久可以追溯到春秋战国时期。它的采矿炼铁业几乎与中华民族的冶炼史同步兴起。<br>
-	// 	丰富的煤炭和铁矿资源，为冶炼业的发展提供了极为便利的条件。鼎盛于明清时期，至今已有千余年的历史。<br>
-	// 	确山打铁花具有深厚的文化内涵，是一种由民间工匠及老乐山道人共同祭祀道教始祖太上老君而举行的活动，<br>
-	// 	后来演变为综合性民间传统庆祝仪式。是河南省仅存的大型民间传统焰火，素有“民间焰火之最”、“中原文化奇葩”、<br>
-	// 	“中华第一铁花”的美誉，于2008年被国务院和文化部公布为“国家级非物质文化遗产”。
-	// 	`
-	// },
-	// 12: {
-	// 	title: "《剪纸》",
-	// 	author: "中国民间",
-	// 	describe: `
-	// 	剪纸是一种用剪刀或刻刀在纸上剪刻花纹[1]，用于装点生活或配合其他民俗活动的民间艺术。其传承的视觉形象和造型格式，<br>
-	// 	蕴涵了丰富的文化历史信息，表达了广大民众的社会认知、道德观念等。剪纸艺术遗产<br>
-	// 	先后入选中国国家级非物质文化遗产名录和人类非物质文化遗产代表作名录。<br>
-	// 	`
-	// }
+	11: {
+		title: "《打铁花》",
+		author: "河南驻马店",
+		describe: `
+		打铁花，是流传于豫晋地区民间传统的烟火，历史悠久可以追溯到春秋战国时期。它的采矿炼铁业几乎与中华民族的冶炼史同步兴起。<br>
+		丰富的煤炭和铁矿资源，为冶炼业的发展提供了极为便利的条件。鼎盛于明清时期，至今已有千余年的历史。<br>
+		确山打铁花具有深厚的文化内涵，是一种由民间工匠及老乐山道人共同祭祀道教始祖太上老君而举行的活动，<br>
+		后来演变为综合性民间传统庆祝仪式。是河南省仅存的大型民间传统焰火，素有“民间焰火之最”、“中原文化奇葩”、<br>
+		“中华第一铁花”的美誉，于2008年被国务院和文化部公布为“国家级非物质文化遗产”。
+		`
+	},
+	12: {
+		title: "《剪纸》",
+		author: "中国民间",
+		describe: `
+		剪纸是一种用剪刀或刻刀在纸上剪刻花纹[1]，用于装点生活或配合其他民俗活动的民间艺术。其传承的视觉形象和造型格式，<br>
+		蕴涵了丰富的文化历史信息，表达了广大民众的社会认知、道德观念等。剪纸艺术遗产<br>
+		先后入选中国国家级非物质文化遗产名录和人类非物质文化遗产代表作名录。<br>
+		`
+	}
 };
 
 /*
