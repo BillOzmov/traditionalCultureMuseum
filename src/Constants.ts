@@ -1,7 +1,7 @@
 /*
 * Model Resources
 * */
-export const COLLISION_SCENE_URL = new URL("./assets/models/scene_collision.glb", import.meta.url).href;
+export const COLLISION_SCENE_URL = new URL("./assets/models/test.glb", import.meta.url).href;
 export const STATIC_SCENE_URL = new URL("./assets/models/TV.glb", import.meta.url).href;
 
 /*
