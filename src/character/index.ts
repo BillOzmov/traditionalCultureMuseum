@@ -166,8 +166,6 @@ export default class Character {
 		this.velocity.y += this.player_is_on_ground ? 0 : delta_time * this.gravity;
 		this.character.position.addScaledVector(this.velocity, delta_time);
 		const angle = this.core.orbit_controls.getAzimuthalAngle();
-
-		if (this.core.control_manage.mode === "pc") { // 根据PC端操作移动角色方位
 			if (this.core.control_manage.key_status["KeyW"]) {
 				this.temp_vector.set(0, 0, -1).applyAxisAngle(this.up_vector, angle);
 				this.character.position.addScaledVector(this.temp_vector, this.speed * delta_time);
@@ -187,15 +185,6 @@ export default class Character {
 				this.temp_vector.set(1, 0, 0).applyAxisAngle(this.up_vector, angle);
 				this.character.position.addScaledVector(this.temp_vector, this.speed * delta_time);
 			}
-		} else { // 根据移动端操作移动角色方位
-			const degree = this.core.control_manage.move_degree;
-			if (degree) {
-				const angle = (degree - 90) * (Math.PI / 180);
-				this.temp_vector.set(0, 0, -1).applyAxisAngle(this.up_vector, angle);
-				this.temp_vector.applyQuaternion(this.core.camera.quaternion);
-				this.character.position.addScaledVector(this.temp_vector, this.speed * delta_time);
-			}
-		}
 
 
 		this.character.updateMatrixWorld();
