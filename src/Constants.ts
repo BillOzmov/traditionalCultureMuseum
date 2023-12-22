@@ -2,7 +2,7 @@
 * Model Resources
 * */
 export const COLLISION_SCENE_URL = new URL("./assets/models/scene_collision.glb", import.meta.url).href;
-export const STATIC_SCENE_URL = new URL("./assets/models/TV.glb", import.meta.url).href;
+export const STATIC_SCENE_URL = new URL("./assets/models/scene_desk_obj.glb", import.meta.url).href;
 
 /*
 * Texture Resources
@@ -19,7 +19,8 @@ export const BOARD_TEXTURES = [
 	new URL("./assets/boards/9.png", import.meta.url).href,
 	new URL("./assets/boards/10.png", import.meta.url).href,
 	new URL("./assets/boards/11.png", import.meta.url).href,
-	new URL("./assets/boards/12.png", import.meta.url).href
+	new URL("./assets/boards/12.png", import.meta.url).href,
+	new URL("./assets/boards/13.png", import.meta.url).href
 ];
 
 /*
@@ -153,6 +154,17 @@ export const BOARDS_INFO: Record<string, {title: string, author: string, describ
 		剪纸是一种用剪刀或刻刀在纸上剪刻花纹[1]，用于装点生活或配合其他民俗活动的民间艺术。其传承的视觉形象和造型格式，<br>
 		蕴涵了丰富的文化历史信息，表达了广大民众的社会认知、道德观念等。剪纸艺术遗产<br>
 		先后入选中国国家级非物质文化遗产名录和人类非物质文化遗产代表作名录。<br>
+		`
+	},
+	13: {
+		title: "《福船制造技艺》",
+		author: "福建福州",
+		describe: `
+		水密隔舱福船制造技艺是我国造船史上一项伟大的发明创造，是我国造船业中独一无二、别具特色的特殊技艺，<br>
+		是福建造船史上一个极为重要的里程碑。水密隔舱福船制造技艺，是指从设计、工艺、建造、管理到使用的全过程中，<br>
+		对船舶进行严密封闭、水密性能良好的一种船舶构造工艺。<br>
+		2008年6月7日，水密隔舱福船制造技艺经中华人民共和国国务院批准列入第二批国家级非物质文化遗产名录；<br>
+		2010年，水密隔舱福船制造技艺被联合国教科文组织保护非物质文化遗产政府间委员会列入“急需保护的非物质文化遗产名录”。
 		`
 	}
 };
