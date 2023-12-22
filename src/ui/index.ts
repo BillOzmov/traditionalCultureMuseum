@@ -13,7 +13,7 @@ export default class UI {
 		preview_tooltip: HTMLElement;
 		preview_tips: HTMLElement;
 
-		/* 画展详情相关 */
+		/* 展品详情相关 */
 		boards_dialog: HTMLElement;
 		boards_container: HTMLElement;
 		boards_content: HTMLElement;

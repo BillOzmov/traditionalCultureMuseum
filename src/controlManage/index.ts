@@ -1,8 +1,7 @@
 import Core from "../core";
 import {ON_KEY_DOWN, ON_KEY_UP} from "../Constants";
-import Joystick from "nipplejs";
 
-type Mode = "pc" | "mobile"
+type Mode = "Web"
 
 type Keys = "KeyW" | "KeyS" | "KeyA" | "KeyD" | "Space";
 
@@ -23,9 +22,7 @@ export default class ControlManage {
 	};
 	is_enabled =  false;
 	private key_sets: KeySets = ["KeyW", "KeyS", "KeyA", "KeyD", "Space"];
-	private joystick_element = document.getElementById("joystick")!;
-	private joystick_manager: ReturnType<typeof Joystick.create> | undefined;
-	mode: Mode = "pc";
+	mode: Mode = "Web";
 	move_degree: number | undefined = undefined;
 
 	constructor() {
@@ -34,39 +31,11 @@ export default class ControlManage {
 	}
 
 	private _bindEvent() {
-		if ("ontouchstart" in window) { // 绑定移动端摇杆事件
-			this.mode = "mobile";
-
-			this._createJoystick();
-
-			window.addEventListener("dblclick", () => {
-				document.documentElement.requestFullscreen();
-			});
-
-			this.joystick_manager?.on("move", (event, nipple) => {
-				this.move_degree = nipple.angle.degree;
-			});
-
-			this.joystick_manager?.on("end", () => {
-				this.move_degree = undefined
-			});
-		} else { // 绑定pc端键盘事件
+ 			// 绑定键盘事件
 			document.addEventListener("keydown", this._onKeyDown.bind(this));
 			document.addEventListener("keyup", this._onKeyUp.bind(this));
-		}
 	}
-
-	private _createJoystick() {
-		this.joystick_element.style.display = "block";
-
-		this.joystick_manager = Joystick.create({
-			zone: this.joystick_element,
-			color: "black",
-			mode: "static",
-			position: { left: "50%", top: "50%" },
-		});
-	}
-
+	
 	private _onKeyDown(event: KeyboardEvent) {
 		if (this.isAllowKey(event.code) && this.is_enabled) {
 			this.key_status[event.code] = true;
