@@ -1,14 +1,15 @@
 import {Box3, Line3, Matrix4, Mesh, MeshBasicMaterial, Vector3} from "three";
 import {RoundedBoxGeometry} from "three/examples/jsm/geometries/RoundedBoxGeometry";
 import Core from "../core";
-import {ON_KEY_DOWN} from "../Constants";
+import {ON_KEY_DOWN, ON_KEY_UP} from "../Constants";
 
 type CharacterParams = {
 	reset_position?: Vector3,
 	reset_y?: number,
 	speed?: number,
 	jump_height?: number,
-	gravity?: number
+	gravity?: number,
+
 }
 
 export default class Character {
@@ -27,9 +28,12 @@ export default class Character {
 	private gravity: number; // 重力
 	private jump_height: number; // 跳跃高度
 	private speed: number; // 速度
+	private character_height: number=1;//角色高度
 	private player_is_on_ground = false; // 是否在地面
+	private isCrouching: boolean = false; // 是否处于下蹲状态
+	private normalParams: CharacterParams; // 正常状态下的角色参数
+	private crouchingParams: CharacterParams; // 下蹲状态下的角色参数
 	private velocity = new Vector3();
-
 	private up_vector = new Vector3(0, 1, 0);
 	private temp_vector = new Vector3();
 	private temp_vector2 = new Vector3();
@@ -45,16 +49,17 @@ export default class Character {
 		gravity = -50
 	}: CharacterParams) {
 		this.core = new Core();
-
+		this.normalParams = { reset_position, reset_y, speed, jump_height, gravity };
+		this.crouchingParams = { ...this.normalParams, speed: speed * 0.5, jump_height: jump_height * 1.4 };
 		this.reset_position = reset_position;
 		this.reset_y = reset_y;
 		this.gravity = gravity;
 		this.jump_height = jump_height;
 		this.speed = speed;
-
 		this._createCharacter();
 
 		this.core.$on(ON_KEY_DOWN, this._onKeyDown.bind(this));
+		this.core.$on(ON_KEY_UP, this._onKeyDown.bind(this));
 	}
 
 	update(delta_time: number, collider: Mesh) {
@@ -185,7 +190,12 @@ export default class Character {
 				this.temp_vector.set(1, 0, 0).applyAxisAngle(this.up_vector, angle);
 				this.character.position.addScaledVector(this.temp_vector, this.speed * delta_time);
 			}
-
+			if (this.core.control_manage.key_status["KeyQ"]) {
+				this.applyCrouchingParams();
+			}
+			else {
+				this.applyNormalParams();
+			}
 
 		this.character.updateMatrixWorld();
 	}
@@ -200,11 +210,41 @@ export default class Character {
 		if (key_code === "Space") {
 			this._onCharacterJump();
 		}
+		if (key_code === "KeyR"){
+			this._reset();
+		}
 	}
 
 	private _onCharacterJump() {
 		if (this.player_is_on_ground) {
 			this.velocity.y = this.jump_height;
 		}
+	}
+
+	private applyCrouchingParams() {
+		if(this.isCrouching){
+		}
+		else{
+			this.character.scale.setY(0.8); // 将角色模型的高度设置为原来的一半
+			this.isCrouching=true;
+		}
+		this.resetParams(this.crouchingParams);
+	}
+
+	private applyNormalParams() {
+		if(this.isCrouching){
+			this.character.scale.setY(1);
+			this.isCrouching=false;
+		}
+		this.resetParams(this.normalParams);
+	}
+
+	private resetParams(params: CharacterParams) {
+		this.reset_position = params.reset_position;
+		this.reset_y = params.reset_y;
+		this.gravity = params.gravity;
+		this.jump_height = params.jump_height;
+		this.speed = params.speed;
+
 	}
 }

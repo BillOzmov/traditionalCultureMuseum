@@ -3,7 +3,7 @@ import {ON_KEY_DOWN, ON_KEY_UP} from "../Constants";
 
 type Mode = "Web"
 
-type Keys = "KeyW" | "KeyS" | "KeyA" | "KeyD" | "Space";
+type Keys = "KeyW" | "KeyS" | "KeyA" | "KeyD" | "Space" | "KeyQ"| "KeyR";
 
 type KeySets = Keys[]
 
@@ -18,10 +18,12 @@ export default class ControlManage {
 		"KeyS": false,
 		"KeyA": false,
 		"KeyD": false,
-		"Space": false
+		"Space": false,
+		"KeyQ": false,
+		"KeyR":false
 	};
 	is_enabled =  false;
-	private key_sets: KeySets = ["KeyW", "KeyS", "KeyA", "KeyD", "Space"];
+	private key_sets: KeySets = ["KeyW", "KeyS", "KeyA", "KeyD", "Space","KeyQ","KeyR"];
 	mode: Mode = "Web";
 	move_degree: number | undefined = undefined;
 
